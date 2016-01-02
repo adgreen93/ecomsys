@@ -1,0 +1,90 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
+  <head data-hook="inside_head">
+    <%= render :partial => 'spree/shared/head' %>
+    <style type="text/css">
+     html, body { height: 100%; margin: 0; padding: 0; }
+      #map { 
+        height: 50%;
+         }
+
+         #map2 { 
+        height: 50%;
+         }
+
+    </style>
+  </head>
+  <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
+
+    <div class="container">
+
+      <%= render :partial => 'spree/shared/header' %>
+
+      <div id="wrapper" class="row" data-hook>
+
+        <%= breadcrumbs(@taxon) %>
+
+        <%= render :partial => 'spree/shared/sidebar' if content_for? :sidebar %>
+
+        <div id="content" class="columns <%= !content_for?(:sidebar) ? "sixteen" : "twelve omega" %>" data-hook>
+          <%= flash_messages %>
+          <%= yield %>
+        </div>
+
+        <%= yield :templates %>
+
+      </div>
+
+      <%= render :partial => 'spree/shared/footer' %>
+
+    </div>
+
+    <%= render :partial => 'spree/shared/google_analytics' %>
+    <h1 style="text-align:center"> Where Your Product Was Made</h1>
+
+    <% ab_test "map_options",  "mapA",  "mapB" do |mapview| %>
+
+    <% if mapview == "mapA" %>
+    <div id="map"></div>
+    <% end %>
+    
+
+    <% if mapview == "mapB" %>
+    <div id="map2"></div>
+    <% end %>
+
+    <% end %>
+
+   
+    <script>
+
+var map;
+var map2;
+var infostring = "Your product was made in this little tiny Indonesian village. How quaint."
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+  });
+};
+function initMap() {
+  map2 = new google.maps.Map(document.getElementById('map2'), {
+    center: {lat: -25.363, lng: 131.044},
+    zoom: 8
+  });
+};
+
+
+
+    </script>
+
+  </body>
+
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAxHEenmaek00v7Mt48RCGwxeBN-BaS78&callback=initMap">
+    </script>
+</html>
