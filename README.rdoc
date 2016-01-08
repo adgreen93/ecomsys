@@ -10,7 +10,7 @@ It's far from production quality, but a great template of how a lot of startups 
 
 * Requires
 
-https://github.com/plataformatec/devise - Auth
-https://github.com/splitrb/split - A/B Testing
-https://github.com/solidusio/solidus - Solidus - E-Commerce 
+* https://github.com/plataformatec/devise - Auth
+* https://github.com/splitrb/split - A/B Testing
+* https://github.com/solidusio/solidus - Solidus - E-Commerce 
 
