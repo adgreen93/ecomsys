@@ -1,6 +1,6 @@
 == README
 
-[alt text] (https://github.com/adgreen93/raw/liquid-ecommerce/liquidlogo.png)
+![logo](/liquidlogo.png)
 
 This is an e-commerce platform built with Solidus(a fork of Spree, and a great videogame character), with A/B testing built with Split, and a section that helps users find their perfect product. This idea first came across my head looking at the various types of subscription based e commerce companies that popped over the last year. Monthly deliveries of your favorite chocolate, the best type of wine you'd like, coffee blends, movies, toys, etc. One theme that tied them together, which I replicated here, was that you could answer a survey and it would find what product in the store's arsenal would be perfect for you.
 
